@@ -1,0 +1,430 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+html{
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: #3cc0b7;
+
+}
+body{
+    min-height: 100%;
+}
+
+/* NAVBAR Styles ------------------------------------------ */
+.navbar{
+    grid-area: navbar;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+}
+.nav-list{
+    padding: 0.8rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    list-style: none;
+    border-bottom:1px rgb(65, 64, 64) dashed;
+}
+.nav-list li{
+    color: #8c96a0;
+    text-align: center;
+
+}
+.navbar a{
+    text-decoration: none;
+    display: block;
+    font-size:0.7rem;
+}
+.logo{
+    position: relative;
+    text-align: center;
+    color: black;
+}
+.logo-text{
+    position: absolute;
+    color: aliceblue;
+    font-family:"Brush Script MT";
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.nav-img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    opacity: 90%;
+    
+}
+.li-img{
+    display: none;
+}
+
+/* !-------------------------------------------------------- */
+/* Main Styles ------------------------------------------ */
+.main{
+    grid-area: main;
+}
+.main-banner{
+    width: 100%;
+}
+
+#main-img{
+    width: 100%;
+    height:100%; 
+    z-index: -1;  
+}
+#banner-text{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transform: translate(0,-5.25rem);
+   
+    
+}
+
+#banner-text h3{
+    background-color: white;
+    width: 75%;
+    height: 2.5rem;
+    opacity: 80%;  
+    font-size: 1.5rem;
+}
+#banner-text h4{
+    background-color: black;
+    color: white;
+    height: 2.5rem;
+    flex-grow: 1;
+    font-family:"Brush Script MT";
+    font-size: 1rem;
+   
+}
+.main .secondary-nav{
+    border-bottom: none;
+    position: sticky;
+    top:0;
+    
+    display: flex;
+    
+}
+.secondary-nav button{
+    flex-grow: 1;
+    height: 2.5rem;
+    width: 25%;
+    border: none;
+    background-color: aliceblue;
+    color: #3cc0b7;
+    font-size: large;
+    
+}
+.secondary-nav .subtitle{
+    display: none;
+    font-size: 0.75rem;
+}
+.secondary-nav button:hover{
+    
+    background-color: rgb(217, 237, 255);
+    
+}
+.mail-input{
+    border-top:2px dashed black;
+    border-bottom:2px dashed black;
+    padding: 1rem;
+    margin:2rem 0 ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.mail-input img{
+    width: 10%;
+    height: 3rem;
+    
+}
+.mail-input p{
+    width: 80%;
+    font-family:"Brush Script MT";
+    font-size: 1rem;
+}
+.mail-input input{
+    width: 75%;
+    height: 1rem;
+}
+.mail-input button{
+    width: 25%;
+    color: #8c96a0;
+    height: 1rem;
+}
+.posts-section{
+    width: 100%;
+    margin-top: 1rem;
+}
+.post{
+    border-bottom: 2px dashed black ;
+    margin: 1rem;
+}
+.cover{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid rgb(184, 184, 184);
+    box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+.post p{
+    font-size: smaller;
+    text-align: justify;
+    margin:1rem 0 ;
+}
+.art-foot{
+    font-size: smaller;
+    color: #8c96a0;
+    margin-bottom: 1rem;
+}
+/* !-------------------------------------------------------- */
+.sidebar{
+    grid-area: sidebar;
+    display: none;
+}
+.footer{
+    grid-area: footer;
+    display: none;
+}
+.home{
+    display: grid;
+    gap:10px;
+    grid-template: 
+    "navbar " 150px
+    "main " auto
+}
+
+
+
+@media (min-width:600px){
+    .home{
+        grid-template-areas: 
+        "navbar"
+        "main";
+        
+        grid-template: 
+        "navbar" 150px
+        "main" auto
+    }
+    /* NAVBAR Styles ------------------------------------------ */
+    .navbar{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .navbar a{
+        font-size:large;
+    }
+    .nav-list{
+        order:2;
+        flex-grow: 3;
+        border-bottom: none;
+        justify-content: flex-end;
+        gap:1rem
+    }
+    .logo{
+        order: 1;
+       
+    }
+    .logo-text{
+        top: 40%;
+        font-size: 1.5rem;
+    }
+    .nav-img{
+        width: 8rem;
+        height: 8rem;
+    }
+    .li-img{
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    /* !-------------------------------------------------------- */
+    /* Main Styles ------------------------------------------ */
+
+    #banner-text{
+       transform: translate(0,-9rem);
+       width: 60vw;
+    }
+    .mail-input{
+        flex-wrap: nowrap;
+        padding: 0 1rem 0 1rem;
+    }
+    .mail-input p{
+        margin: 0 2rem 0 2rem
+    }
+    .posts-section{
+        display: flex;
+    }
+    .post{
+        border-bottom: none;
+    }
+    .post p{
+        text-align: left;
+    }
+    .art-foot {
+        display: flex;
+        flex-direction: column;
+
+    }
+    /* !-------------------------------------------------------- */
+}
+
+
+@media (min-width:900px){
+    .footer{
+        display: flex;
+        justify-content: flex-start;
+        border-top: 2px dashed black ;
+        margin: 0 1rem;
+        padding-top: 0.7rem;
+        font-size: small;
+        color: #8c96a0;
+    }
+    .foot-text{
+        flex-grow: 2;
+    }
+    .foot-icons img{
+        max-width: 2rem;
+        height: 3rem;
+    }
+    
+    /* SideBAR Styles ------------------------------------------ */
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-left: 1rem;
+    }
+    .sidebar .title{
+        text-transform: uppercase;
+        font-size: small;
+        
+        border-bottom:2px black dashed; ;
+    }
+    .sidebar p {
+      
+        padding:  0.5rem 0 0.5rem 0;
+    }
+    article p{
+        font-size: smaller;
+    }
+    #tw-article p{
+        font-family: "Brush Script MT" ;
+        font-size: medium;
+    }
+    #tw-article a{
+        font-family: "Brush Script MT" ;
+    }
+   
+    .sidebar button{
+        background-color:  white;
+        padding: 0.3rem;
+        color: #3cc0b7;
+        font-size: 0.6rem;
+        border: 2px solid #8c96a0;
+        text-align: center;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+
+    .button-icon{
+        height: 1rem;
+        max-width: 1rem;
+
+    }
+    /* !-------------------------------------------------------- */
+    /* Main Styles ------------------------------------------ */
+    .main-banner{
+        height: 50vh;
+    }
+    #banner-text{
+        width: 35%;
+
+    }
+    #main-img{
+        object-fit: cover;
+    }
+    #banner-text h4{
+        font-size: 1rem;
+        height: 1.5rem;
+    }
+    #banner-text h3{
+        text-align: center;
+        font-size: 1.25rem;
+        height: 2rem;
+        width:60%;
+        
+    }
+    .secondary-nav button{
+        height: 4rem;
+        text-align: left;
+        padding: 1rem;
+    }
+    .secondary-nav .subtitle{
+        display: block;
+    }
+    .posts-section{
+        height: auto;
+    }.post{
+        font-size: larger;
+    }
+    .art-foot{
+        display: block;
+    }
+    
+    /* !-------------------------------------------------------- */
+    /* NavBAR Styles ------------------------------------------ */
+    .navbar{
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 2rem;
+        
+    }
+     
+    .nav-list{
+        flex-flow: column nowrap;
+        justify-content: space-around;
+    }
+    .nav-list li{
+        display: flex;
+        justify-content: flex-start;
+        gap:0.5rem;
+        color: #8c96a0;
+        text-align: left;
+
+    
+    }
+    .logo-text{
+        top: 45%;
+    }
+    .li-img{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    
+    /* !-------------------------------------------------------- */
+
+    .home{
+        grid-template: 
+        "navbar main" 50vh
+        "sidebar  main" auto
+        "footer footer " 3rem /
+        15vw   auto    
+
+    }
+    
+}

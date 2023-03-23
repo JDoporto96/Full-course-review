@@ -1,0 +1,28 @@
+
+.sierpinski {
+    font-size: .5em;
+  }
+  
+  .sierpinski span {
+    display: block;
+    width: 0;
+    height: 0;
+      border-width: 0 1em 1.732em 1em;
+    border-style: solid;
+    border-color: black transparent black transparent;
+  }
+  
+  
+  .sierpinski div:nth-child(1) {
+    padding-left: 1em;
+  }
+  .sierpinski *:nth-child(1) {
+    margin-left: 1em;
+    overflow: hidden;
+  }
+  .sierpinski *:nth-child(2) {
+    float: left;
+  }
+  .sierpinski *:nth-child(3) {
+    float: left;
+  }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <button id="increaseD">Increase</button>
+    <button id="decreaseD">Decrease</button>
+    <br/>
+    <br/>
+    <div class="sierpinski" style="font-size: 128px;">
+        <span></span><span></span><span></span>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    let divisions = 1;
+
+    $("#increaseD").on("click", function() {
+        if(divisions == 0){
+            $(".sierpinski span:nth-child(2)").css( "border-color", "black transparent black transparent");
+            $(".sierpinski span:nth-child(3)").css( "border-color", "black transparent black transparent");
+            divisions++
+        }else{
+            divisions++
+            $(".sierpinski>span").replaceWith('<div class="sierpinski"><span></span><span></span><span></span></div>');
+        }
+       });
+
+    $("#decreaseD").on("click", function() {
+        if(divisions === 0){
+            return
+        }else if(divisions ==1){
+            $(".sierpinski span:nth-child(2)").css( "border-color", "black black black transparent");
+            $(".sierpinski span:nth-child(3)").css( "border-color", "black transparent black black");
+            divisions--
+        }else{
+            $(".sierpinski>span").parent().replaceWith('<span></span>');
+            divisions--
+        }
+        
+        
+    });
+
+
+</script>
+</html>
