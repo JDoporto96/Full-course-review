@@ -5,20 +5,24 @@
 const arr = [1,2,3,4,9,9,2,7,10,13];
 
 const equalizer = (arr)=>{
-    let sumLeft = arr.reduce((a,b)=>a+b);
+    let sumLeft = 0
     let sumRight= 0;
+    let i = 0;
     let j = arr.length -1;
-    while(sumRight<=sumLeft){
-        if(sumLeft === sumRight){
-            return j
+    while(i<=j){
+        if(sumLeft < sumRight){
+            sumLeft+=arr[i];
+            i++;
         }else{
-            sumLeft-=arr[j]
-            sumRight+=arr[j]
+            sumRight+=arr[j];
             j--
         }
     }
+    if(sumLeft === sumRight) return j
+
     return -1
 }
 
+console.log(equalizer(arr))
 
 module.exports=equalizer

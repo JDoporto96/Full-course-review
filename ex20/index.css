@@ -1,15 +1,15 @@
 
 .sierpinski {
-    font-size: .5em;
+    font-size: 0.5em;
   }
   
   .sierpinski span {
     display: block;
     width: 0;
     height: 0;
-      border-width: 0 1em 1.732em 1em;
+    border-width: 0 1em 1.732em 1em;
     border-style: solid;
-    border-color: black transparent black transparent;
+    border-color: black transparent  black ;
   }
   
   

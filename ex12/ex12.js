@@ -16,12 +16,14 @@ function symmetricTree(tree, order = 'infix'){
       return tree.slice(1,-1).replace(/ /g,'( )').replace(/,/g,'')
    }
    function printInorder(node) {
-      if (node == null)
-          return;
+      if (node == null ||node.data == null || node.data==" "){
+         return
+      }
+        
       printInorder(node.left);
-
+   
       str+=(node.data)
-      
+
       printInorder(node.right);
    }
    function checkSymmetry(str){
@@ -37,15 +39,22 @@ function symmetricTree(tree, order = 'infix'){
         }
     }
     return true
-    }
+   }
    
 
    let str='';
    let s = prepareStr(tree);
-   let root = new Node(s[0]);
+   let value="";
+   let i= 0;
+   while(s[i] && s[i]!="("){
+      value += s[i];
+      i++
+   }
+   let root = new Node(value);
+   value="";
+
    let stk = [];
-   for (let i = 1; i < s.length; i++){
- 
+   while (i < s.length ){
       if (s[i]=='('){
          stk.push(root);
 
@@ -54,23 +63,35 @@ function symmetricTree(tree, order = 'infix'){
          stk.pop();
 
       }else{
+         while(s[i]!="(" && s[i]!=")"){
+            value += s[i];
+            if(s[i+1]=="(" || s[i+1]==")") break
+            i++
+         }
+
          if (root.left == null) {
-            let left = new Node(s[i]);
+            let left = new Node(value);
+            value="";
             root.left = left;
             root = root.left;
 
          }else if (root.right == null) {
-            let right = new Node(s[i]);
+            let right = new Node(value);
+            value="";
             root.right = right;
             root = root.right;
          }
       }
-   }
-    
-   printInorder(root);
 
+      i++
+   }
+
+   printInorder(root);
    return checkSymmetry(str)
 }
+
+const tree = "(A,(B,(C)),(B, ,()))"
+console.log(symmetricTree(tree))
 
 module.exports=symmetricTree;
 

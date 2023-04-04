@@ -12,7 +12,7 @@
     <button id="decreaseD">Decrease</button>
     <br/>
     <br/>
-    <div class="sierpinski" style="font-size: 128px;">
+    <div class="sierpinski" style="font-size: 128px;" >
         <span></span><span></span><span></span>
     </div>
 </body>
@@ -21,11 +21,24 @@
     let divisions = 1;
 
     $("#increaseD").on("click", function() {
+        console.log(divisions)
         if(divisions == 0){
             $(".sierpinski span:nth-child(2)").css( "border-color", "black transparent black transparent");
             $(".sierpinski span:nth-child(3)").css( "border-color", "black transparent black transparent");
             divisions++
-        }else{
+        
+        }
+        if(divisions == 6){
+           
+            $(".sierpinski>span").replaceWith('<div class="sierpinski"><span></span><span></span><span></span></div>');
+            $(".sierpinski span").css( "border-width", "0 1em 1.732em 1.5em");
+            divisions++
+        }
+        if(divisions == 7){
+           window.alert("Max number of divisions reached")
+        
+        }
+        else{
             divisions++
             $(".sierpinski>span").replaceWith('<div class="sierpinski"><span></span><span></span><span></span></div>');
         }

@@ -1,5 +1,6 @@
 // Implement an array flattening function with recursive and iterative versions. Do not use the built-in function.
 const input = [1,2,3,[4,5,[6,[[7]],8]],[9,10]]
+// const input = [1,2,[,3]]
 
 function flattenArray(input){
     if (!Array.isArray(input)) {
@@ -23,9 +24,11 @@ function flattenArray(input){
 * expected output:
 * [1,2,3,4,5,6,7,8,9,10]
 */
+[1,2,[,3]]
 
 function flattenArrayIt(arr){
-    var i = 0;
+    let i = 0;
+    const flat=[];
 
     if (!Array.isArray(arr)) {
         return arr;
@@ -33,12 +36,15 @@ function flattenArrayIt(arr){
 
     while (i < arr.length) { 
         if (Array.isArray(arr[i])) {
-        arr.splice(i, 1, ...arr[i]);
-        } else {
-        i++;
+            flat.concat(arr.splice(i, 1, ...arr[i].filter(Boolean)));
+        }else {
+            flat.push(arr[i])
+            i++;
         }
     }
-    return arr;
+
+    return flat;
 }
+
 
 module.exports={flattenArray, flattenArrayIt}

@@ -33,10 +33,10 @@ test("Return true as 3 cannot be found on the same level", ()=>{
     expect(isSameLevel(root,3,3)).toBeTruthy();
 })
 
-test("Return 0 as there are missing arguments", ()=>{
-    expect(isSameLevel(root,3)).toBe(0);
+test("Return false as there are missing arguments", ()=>{
+    expect(isSameLevel(root,3)).toBeFalsy();
 })
 
-test("Return 0 as there is no tree", ()=>{
-    expect(isSameLevel()).toBe(0);
+test("Return false as there is no tree", ()=>{
+    expect(isSameLevel()).toBeFalsy();
 })

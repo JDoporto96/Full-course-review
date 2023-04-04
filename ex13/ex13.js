@@ -58,11 +58,11 @@ function isSameLevel(tree, n1, n2){
         return M
     }
     if(!n1 || !n2){
-        return 0
+        return false
     }
 
     if(!root){
-        return 0
+        return false
     }
     const treeLvls = getLevels(tree)
 
@@ -81,5 +81,7 @@ function isSameLevel(tree, n1, n2){
     return false
     
 }
+
+console.log(isSameLevel(root,1,0))
 
 module.exports =isSameLevel;

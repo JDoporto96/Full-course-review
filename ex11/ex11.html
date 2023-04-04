@@ -26,14 +26,21 @@ Select nodes whose children match a pattern. Must select the direct parent of th
 
 <script>
     function enhancedQuerySelectorAll(pattern){
+        const [parentSelector, childSelector] = pattern.split("<");
+        const parents = document.querySelectorAll(parentSelector);
         const res=[];
-        const list = document.querySelectorAll(pattern);
-        list.forEach(el=>res.push(el.parentNode))
+        parents.forEach(parent => {
+            
+            if(parent.querySelectorAll(childSelector).length>0){
+                res.push(parent)
+            }
+        })
         return res
     }
     
-    const list = enhancedQuerySelectorAll("input.is-complete[checked]");
+    const list = enhancedQuerySelectorAll("div.note < input.is-complete[checked]");
     console.log(list)
+    
     
 </script>
 

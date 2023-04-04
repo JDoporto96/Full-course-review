@@ -5,25 +5,31 @@ class Node {
     }
 }
 
-function findStartOfLoop(head){
-	let stk = new Set();
-		
-	let element = head;
+function findStartOfLoop( head) {
+    if (!head  || !head.next) return null;
+    let slow = head;
+    let fast = head;
 
-	while (element != null){
+    slow = slow.next;
+    fast = fast.next.next;
 
-        if(stk.has(element)){
-            return element;
+    while (fast && fast.next){
+        if (slow == fast) break;
 
-        }else{
-            stk.add(element);
-        }
+        slow = slow.next;
+        fast = fast.next.next;
+    }
 
-        element = element.next;
-	}
-	return null;
+    if (slow != fast) return null;
+
+    slow = head;
+    while(slow != fast){
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+    return slow
 }
-
 
      
 head = new Node(1);
@@ -40,5 +46,3 @@ head.next.next.next.next.next.next.next.next.next = head.next.next.next;
 
 
 module.exports={findStartOfLoop, Node}
-
-

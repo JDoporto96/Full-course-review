@@ -8,30 +8,40 @@
     font-size:1rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    color: rgb(107, 107, 107);
+    color:#555555;
     padding: 1rem;
     width: 120px;
     height: 20px;
     position: relative;
-   
+    text-shadow:0 0.5px white ;
 }
 
 .fancy-button{
-    background-image: linear-gradient(#f2f2f2 50%, #e4e3e3 50%);
-    border: 1px solid rgb(174, 174, 174);
+    background-image: linear-gradient(#dcdcdc 50%, #b8b8b8 50%);
+    border: 1px solid #919191;
     border-radius: 6px;
-    outline: rgb(187, 187, 187);
+    outline: #cbcbcb;
     outline-width: 2.5px;
     outline-style:solid;
     inset: 10px;
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-    box-shadow: 0 0 0 3.5px #fff, 0 0 0 5px #888;
+    box-shadow:  0 0 0 3.5px #fff, 0 0 0 5px #696969;
 }
 
 .fancy-button::before,
 .fancy-button::after{
     content: "★";
-    color: rgb(172, 172, 172);
+    color: #888888;
+    text-shadow:0 0.5px white ;
+    position: relative;
+    
+}
+.fancy-button::before{
+    left: -5px;
+}
+
+.fancy-button::after{
+    left: 5px;
 }
 
 /* .fancy-button::before{

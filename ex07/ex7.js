@@ -13,7 +13,7 @@ const input = "1212223311212223"
 */
 function longestRunOfTwoNumbers(input){
     if(input.length < 2){
-        return null
+        return input
     }
     let str='';
     let temp='';

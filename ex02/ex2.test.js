@@ -52,6 +52,21 @@ test('`fn` failed on 1st and 2nd attempt, and succeed thereafter ', () => {
   
         expect(data).toBe(3);
       },
-      error => {}
+      error => {console.log(error)}
+    );
+  });
+
+  test('`fn` failed on every attempt ', () => {
+    const fn = mockFnFactory(3);
+    const spied = spy(fn);
+  
+    queryRetry(spied.fn, 3).then(
+      data => {
+
+        expect(spied.getNumberOfTimesCalled()).toBe(3);
+  
+        expect(data).toBe(`The function was tried 3 times and failed`);
+      },
+      error => {console.log(error)}
     );
   });

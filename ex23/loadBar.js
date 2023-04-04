@@ -15,13 +15,16 @@ start() {
         process.stdout.write(this.loaded+"%")
     }
 printLoaded(){
-    rdl.cursorTo(process.stdout,this.size+2);
-    process.stdout.write(this.loaded+"%")
+    if(this.loaded <= this.size){
+        rdl.cursorTo(process.stdout,this.size+2);
+        process.stdout.write(this.loaded+"%")
+    }
+    
 }
 load(percent){
     rdl.cursorTo(process.stdout, this.cursor);
-    this.loaded+=percent;
-    for(let i =0;i< percent;i++){
+    this.loaded=percent;
+    for(let i =this.cursor;i< percent;i++){
         if(this.cursor > this.size){
             return
         }
@@ -29,8 +32,6 @@ load(percent){
         this.cursor++;
         
     }
-
-    
 
     this.printLoaded();
 

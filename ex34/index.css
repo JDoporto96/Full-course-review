@@ -55,6 +55,9 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.logo img{
+    filter: brightness(75%);
+}
 .nav-img{
     width: 5rem;
     height: 5rem;
@@ -119,14 +122,20 @@ body{
     height: 2.5rem;
     width: 25%;
     border: none;
+    border-right: solid rgb(217, 237, 255) 2px;
     background-color: aliceblue;
     color: #3cc0b7;
     font-size: large;
+    font-weight: bold;
+   
     
 }
+
 .secondary-nav .subtitle{
     display: none;
     font-size: 0.75rem;
+    font-weight:lighter;
+    font-style: italic;
 }
 .secondary-nav button:hover{
     
@@ -256,6 +265,22 @@ body{
     #banner-text{
        transform: translate(0,-9rem);
        width: 60vw;
+       
+    }
+
+    #banner-text h3{
+        font-size: 2rem;
+        opacity: 100%;
+        text-align: center;
+        height: 3rem;
+        
+    }
+
+    #banner-text h4{
+        font-size:1.2rem;
+        padding-left: 1rem;
+        height: 2rem;
+        
     }
     .mail-input{
         flex-wrap: nowrap;
@@ -294,10 +319,13 @@ body{
     }
     .foot-text{
         flex-grow: 2;
+
     }
     .foot-icons img{
         max-width: 2rem;
         height: 3rem;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
     }
     
     /* SideBAR Styles ------------------------------------------ */
@@ -336,6 +364,12 @@ body{
         border: 2px solid #8c96a0;
         text-align: center;
     }
+    .sidebar button img{
+       
+        filter: saturate(200%);
+     
+       
+    }
     button:hover{
         cursor: pointer;
     }
@@ -358,14 +392,19 @@ body{
         object-fit: cover;
     }
     #banner-text h4{
-        font-size: 1rem;
-        height: 1.5rem;
+        font-size: 1.2rem;
+        height: 2rem;
+        padding-left: 1rem;
+       
     }
     #banner-text h3{
         text-align: center;
         font-size: 1.25rem;
         height: 2rem;
         width:60%;
+        opacity: 100%;
+        text-align: left;
+        padding-left: 1rem;
         
     }
     .secondary-nav button{
@@ -410,6 +449,7 @@ body{
     .logo-text{
         top: 45%;
     }
+    
     .li-img{
         width: 1.5rem;
         height: 1.5rem;

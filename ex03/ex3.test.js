@@ -1,27 +1,21 @@
-const ex3 = require('./ex3')
+const {cancellableFetch} = require('./ex3')
 
-const controller = ex3.controller;
-
-
-
-test('Fetched not aborted, succesfully finished and returned value "pikachu" ', () => {
-    const result = ex3.cancellableFetch("https://pokeapi.co/api/v2/pokemon/pikachu");
-    result.cancel = ()=>controller.abort();
-    result.then(ex3.someAction).then(ex3.otherAction).then(data =>{
-        expect(data).toBe("pikachu")
-    }).catch(ex3.errorHandler);
-    if(false){
-        result.cancel()
-    }
+test('Fetched not aborted, succesfully finished and returned value "pikachu" ', async () => {
+    const result = await cancellableFetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+    const pokemon = await result.json();
+    expect(pokemon.name).toBe('pikachu');
+    
 })
 
-test('Fetched aborted, returned value is error name "AbortError" ', () => {
-    const result = ex3.cancellableFetch("https://pokeapi.co/api/v2/pokemon/pikachu");
-    result.cancel = ()=>controller.abort();
-    result.then(ex3.someAction).then(ex3.otherAction).catch(ex3.errorHandler);
-    if(true){
-        result.cancel()
+test('Fetched aborted, returned an error of name "AbortError" ', async() => {
+    const abortFunction= async()=>{
+        const result = cancellableFetch("https://pokeapi.co/api/v2/pokemon/pikachu");
+        result.cancel();
+
+        return await result
     }
-    expect(result).toBe("AbortError")
+    
+    await expect(abortFunction()).rejects.toHaveProperty("name", "AbortError");
+
     
 })

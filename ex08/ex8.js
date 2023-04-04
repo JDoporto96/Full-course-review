@@ -23,7 +23,7 @@ const oldObj = {
 function flatten(oldObject, parentName){
     let result = {};
     for (const i in oldObject) {
-        if ((typeof oldObject[i]) === 'object' && !Array.isArray(oldObject[i])) {
+        if ((typeof oldObject[i]) === 'object' && !Array.isArray(oldObject[i]) && oldObject[i] != null) {
             const temp = flatten(oldObject[i]);
             for (const j in temp) {
                 if(parentName){

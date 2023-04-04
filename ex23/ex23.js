@@ -20,18 +20,18 @@ function getPrimes(n){
     ld.start();
     while (primes.length<n){
        if (isPrime(i)){
-        primes.push(i)
-        progress = primes.length*100/n
-        if(progress%2==0){
-            ld.load(2)
+        progress = ((primes.length+1)*100)/n
+
+        if(progress%5==0 || progress ===100){
+            ld.load(progress) 
         }
+        
+        primes.push(i)
        }
        i++;
        
-       
-
     }
-    console.log(primes)
+    console.log("\n", primes)
     return primes
 }
 

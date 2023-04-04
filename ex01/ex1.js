@@ -11,7 +11,7 @@ const tasks = [
    taskFactorySample(1000,false, 'error'),
 ];
 // only run two promises at a time
-const pool_size = 2;
+const pool_size = 10;
 /**
 *  Expect to get an array equal to tasks.length
 *  with the values or reasons for each of the promises.
@@ -19,9 +19,11 @@ const pool_size = 2;
 *  [{value: 1}, {value:2}, {error: 'error'}, ...]
 */
 const runTasks = async (tasks, limit)=>{
-    if(limit>tasks.length){
-        throw new Error("The number of running tasks can't exceed the tasks number")
-    }
+    // if(limit>tasks.length){
+    //     throw new Error("The number of running tasks can't exceed the tasks number")
+    // }
+
+    limit = Math.min(limit, tasks.length);
 
     const results = [];
 
