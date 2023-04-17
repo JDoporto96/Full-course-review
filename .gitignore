@@ -1,6 +1,6 @@
 jest_test
 node_modules
-full-course-react
+
 *.json
 react-fc-ex
 func.js
