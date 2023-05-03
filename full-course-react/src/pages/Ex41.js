@@ -4,6 +4,9 @@ import { call, cancel, cancelled, take } from "redux-saga/effects";
 import ChartCanvas from "../components/ex41/Graph";
 import updateFn from "../utils/updateFn";
 
+
+// execute npm run graph-data to setup the server for the plot data;
+
 function Ex41() {
  const [data, setData]=useState([]);
 

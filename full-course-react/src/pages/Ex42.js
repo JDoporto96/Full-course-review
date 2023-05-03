@@ -1,6 +1,6 @@
 
 import React from 'react'
-import galleryData from '../utils/ex42/galleryData'
+import {galleryData} from '../utils/ex42/galleryData'
 import Gallery from '../components/ex42/Gallery'
 
 function Ex42() {

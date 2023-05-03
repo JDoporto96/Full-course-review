@@ -14,9 +14,9 @@ function srcset(image, size, rows=1, cols=1) {
 }
 
 export default function GalleryImages({columns, itemData}) {
-  const rHeight="auto"
+  // const rHeight="auto"
   return (
-    <ImageList sx={{ width: "100%", height: "100%"}} variant="quilted" cols={columns} rowHeight={`${rHeight}`} >
+    <ImageList sx={{ width: "100%", height: "100%"}} variant="quilted" cols={columns} >
       {itemData.map((item) => {
         const itemCols = item.width >= 2 * item.height ? 2 : 1 ;
         const itemRows = item.height >= 2 * item.width ? 2 : 1 ;
@@ -24,7 +24,7 @@ export default function GalleryImages({columns, itemData}) {
         return(
         <ImageListItem key={item.src} cols={itemCols || 1} rows={itemRows || 1}>
           <img
-            {...srcset(item.src, rHeight, itemRows, itemCols )}
+            {...srcset(item.src, item.height, itemRows, itemCols )}
             alt=""
             loading="lazy"
           />

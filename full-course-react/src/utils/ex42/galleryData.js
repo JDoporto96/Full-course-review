@@ -59,7 +59,8 @@ const galleryData = (createGallery(10));
 //     }
 // );
 
-export default galleryData;
+module.exports ={createGallery, createImg, createPage, galleryData};
+
 
 
 

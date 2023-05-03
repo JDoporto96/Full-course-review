@@ -2,8 +2,6 @@ import React from 'react';
 import GalleryIndex from '../../components/ex42/GalleryIndex';
 
 
-
-
 export default {
   component: GalleryIndex,
   title: 'ex42/GalleryIndex',

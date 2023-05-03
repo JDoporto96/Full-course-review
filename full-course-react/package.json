@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "graph-data": "json-server --watch -p 4000 src/utils/ex41/dataFile.json"
   },
   "eslintConfig": {
     "extends": [
@@ -72,6 +73,7 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "json-server": "^0.17.3",
     "prop-types": "^15.8.1",
     "webpack": "^5.76.2"
   }

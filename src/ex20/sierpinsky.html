@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sierpinski Triangle</title>
+  </head>
+  <body>
+    
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+
+const c = document.getElementById("canvas");
+const ctx = c.getContext("2d");
+
+const createTriangle = (pos, sidelen) => {
+  ctx.beginPath();
+  ctx.moveTo(...pos); 
+
+  ctx.lineTo(pos[0] + sidelen / 2, pos[1] - sidelen * Math.sin(Math.PI/3)); 
+  ctx.lineTo(pos[0] + sidelen, pos[1]); 
+  ctx.lineTo(...pos); 
+  ctx.closePath();
+  ctx.fill(); 
+};
+
+const createSierpinskiTriangle = (pos, sidelen, depth) => {
+  const innerTriangleSidelen = sidelen / 2;
+  const innerTrianglesPositions = [
+    pos,
+    [ pos[0] + innerTriangleSidelen, pos[1] ],
+    [ pos[0] + innerTriangleSidelen / 2, pos[1] - Math.sin(Math.PI/3) * innerTriangleSidelen ]
+  ]; 
+  if(depth === 0) {
+    innerTrianglesPositions.forEach((trianglePosition) => {
+      createTriangle(trianglePosition, innerTriangleSidelen);
+    });
+  } else {
+    innerTrianglesPositions.forEach((trianglePosition) => {
+      createSierpinskiTriangle(trianglePosition, innerTriangleSidelen, depth - 1);
+    });
+  }
+}
+
+createSierpinskiTriangle([0, 500], 500, 8);
+
+    </script>
+  </body>
+</html>

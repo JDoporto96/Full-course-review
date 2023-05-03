@@ -1,5 +1,6 @@
 import React from 'react';
-import ChartCanvas from '../components/ex41/Graph';
+import ChartCanvas from '../../components/ex41/Graph';
+import getDataPoints from '../../utils/ex41/func';
 
 
 
@@ -12,7 +13,9 @@ export default {
   },
 };
 
-const Template = (args, {loaded:{loadedData}})=><ChartCanvas {...args} dataPoints={loadedData}/>;
+const {dataPoints }= getDataPoints()
+
+const Template = (args)=><ChartCanvas {...args} dataPoints={dataPoints.slice(0,100)}/>;
 
 export const Default = Template.bind({});
 
@@ -23,10 +26,4 @@ Default.args = {
     dotColor:'#9BD0F5'
 };
 
-Default.loaders=[
-  async()=>(
-      {
-        loadedData: (await(await fetch( 'http://localhost:4000/dataPoints')).json()).slice(0,100),
-      }),
-];
 

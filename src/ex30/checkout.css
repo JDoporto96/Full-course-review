@@ -1,0 +1,52 @@
+
+
+.fancy-button{
+    margin: 10px;
+    display:inline-block;
+    text-decoration:none;
+    text-align: center;
+    text-transform:uppercase;
+    font-size:1rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#555555;
+    padding: 1rem;
+    width: fit-content;
+    height: 0.5em;
+    position: relative;
+    text-shadow:0 0.5px white ;
+    line-height: 0.5rem;
+}
+
+.fancy-button{
+    background: #b7b7b7;
+    border: 1px solid #919191;
+    text-shadow: white 0 0.5px 0;
+    
+  
+    box-shadow: 0 1px 2px 1px #555555, 0 0 0 6px #cbcbcb, 
+    0 3px 3px 0px black,  inset 0px 1.2rem 0.5px 0 #dadada,
+    0 0 0 8px white, 0 0 0 10px #666666;
+    border-radius: 5px;
+}
+
+.fancy-button::before,
+.fancy-button::after{
+    content: "★";
+    color: #888888;
+    text-shadow:0 0.5px white ;
+    position: relative;
+    
+}
+.fancy-button::before{
+    left: -5px;
+}
+
+.fancy-button::after{
+    left: 5px;
+}
+
+
+
+
+ 
