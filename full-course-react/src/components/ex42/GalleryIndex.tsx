@@ -1,10 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types';
 import { Stack } from '@mui/system';
-import PageButton from './PageButton';
+import PageButton from './PageButton.tsx';
 import { Button } from '@mui/material';
 
-function GalleryIndex({pages, currentPage, onNextClick, onPrevClick,onNumClick}) {
+type Props = {
+  pages: number;
+  currentPage: number;
+  onNumClick?: (
+    ev: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    pageNum: number
+  ) => void;
+  onPrevClick?: (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onNextClick?: (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+};
+
+
+
+
+function GalleryIndex({pages, currentPage, onNextClick, onPrevClick,onNumClick}:Props) {
     const pagesArr = Array.from(
         {length: pages},
         (_, index) => index + 1
@@ -39,13 +52,6 @@ function GalleryIndex({pages, currentPage, onNextClick, onPrevClick,onNumClick})
   )
 }
 
-GalleryIndex.propTypes={
-    pages: PropTypes.number.isRequired,
-    currentPage: PropTypes.number,
-    onNextClick: PropTypes.func,
-    onPrevClick: PropTypes.func,
-    onNumClick: PropTypes.func,
 
-}
 
 export default GalleryIndex

@@ -1,7 +1,7 @@
 import React from 'react';
-import ChartCanvas from '../../components/ex41/Graph';
-import getDataPoints from '../../utils/ex41/func';
-
+import ChartCanvas from '../../components/ex41/Graph.tsx';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import getDataPoints from '../../utils/ex41/func.js';
 
 
 export default {
@@ -11,11 +11,12 @@ export default {
     lineColor: { control: 'color' },
     dotColor: { control: 'color' }
   },
-};
+}as ComponentMeta<typeof ChartCanvas>;
 
 const {dataPoints }= getDataPoints()
 
-const Template = (args)=><ChartCanvas {...args} dataPoints={dataPoints.slice(0,100)}/>;
+const Template: ComponentStory<typeof ChartCanvas> = (args)=>
+<ChartCanvas {...args} dataPoints={dataPoints.slice(0,100)}/>;
 
 export const Default = Template.bind({});
 

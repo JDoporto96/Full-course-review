@@ -10,10 +10,16 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.2.1",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
     "chart.js": "^4.2.1",
+    "cors": "^2.8.5",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.7",
     "enzyme-to-json": "^3.6.2",
+    "express": "^4.18.2",
     "idb": "^7.1.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -22,6 +28,7 @@
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "redux-saga": "^1.2.2",
+    "typescript": "^5.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,22 +38,16 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "graph-data": "json-server --watch -p 4000 src/utils/ex41/dataFile.json"
+    "graph-data": "json-server --watch -p 4000 src/utils/ex41/dataFile.json",
+    "gallery-data": "nodemon src/utils/ex42/server.js"
+  },
+  "resolutions": {
+    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
     ]
   },
   "browserslist": {
@@ -74,7 +75,9 @@
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
     "json-server": "^0.17.3",
+    "nodemon": "^2.0.22",
     "prop-types": "^15.8.1",
+    "react-docgen-typescript-plugin": "^1.0.5",
     "webpack": "^5.76.2"
   }
 }

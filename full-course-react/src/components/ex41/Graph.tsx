@@ -1,9 +1,17 @@
 import React from 'react';
-import LineChart from './LineChart';
+import LineChart from './LineChart.tsx';
 import PropTypes from 'prop-types';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
-function ChartCanvas({label, dotColor, lineColor, dataPoints}) {
-  
+type Props={
+  label: String,
+  dotColor: String, 
+  lineColor: String,
+  dataPoints: Array<any>,
+}
+
+function ChartCanvas({label, dotColor, lineColor, dataPoints}:Props) {
   const data= {
         labels: dataPoints.map((data)=> data.x),
         datasets: [{

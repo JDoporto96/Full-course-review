@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { END, eventChannel, runSaga } from "redux-saga";
 import { call, cancel, cancelled, take } from "redux-saga/effects";
-import ChartCanvas from "../components/ex41/Graph";
+import ChartCanvas from "../components/ex41/Graph.tsx";
 import updateFn from "../utils/updateFn";
 
 

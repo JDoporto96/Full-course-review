@@ -20,6 +20,14 @@ test("Throw an error as a ) is missing at the end of string", ()=>{
    }
 })
 
+test("Throw an error as a ()() is an invalid syntax", ()=>{
+   try{
+      printTree(errTree,"postfix")
+   }catch(e){
+      expect(e.message).toBe("Invalid syntax")
+   }
+})
+
 
 
 

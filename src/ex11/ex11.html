@@ -32,15 +32,15 @@ Select nodes whose children match a pattern. Must select the direct parent of th
         parents.forEach(parent => {
             const children= parent.querySelectorAll(`${parentSelector} > ${childSelector}`);
             children.forEach(child =>{
-                res.push(child.closest(parentSelector))
-            })
-           
-           
+                res.push(child.parentElement)
+            })})
+        res.forEach(el =>{
+            el.dataset.selected = true;
         })
-        return res
     }
     
-    const list = enhancedQuerySelectorAll("div.note<input.is-complete[checked]");
+    enhancedQuerySelectorAll("div.note < input.is-complete[checked]");
+    const list = document.querySelectorAll("[data-selected]");
     console.log(list)
     
     

@@ -1,14 +1,15 @@
 import React from 'react';
-import PageButton from '../../components/ex42/PageButton';
+import PageButton from '../../components/ex42/PageButton.tsx';
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+
 
 
 export default {
   component: PageButton,
   title: 'ex42/PageButton',
+}as ComponentMeta<typeof PageButton>;
 
-};
-
-const Template = (args)=><PageButton {...args}/>;
+const Template: ComponentStory<typeof PageButton> = (args)=><PageButton {...args}/>;
 
 export const Default = Template.bind({});
 Default.args = {

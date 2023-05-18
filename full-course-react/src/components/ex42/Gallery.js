@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import GalleryImages from './GalleryImages'
-import GalleryIndex from './GalleryIndex'
+import GalleryImages from './GalleryImages.tsx'
+import GalleryIndex from './GalleryIndex.tsx'
 import usePageBottom from './usePageBottomHook';
 
 
@@ -82,7 +82,7 @@ function Gallery({url}) {
 
   if(loading){
     return (
-      <>
+    <>
         <h1>loading...</h1>
        <GalleryIndex 
       pages={totalPgs} 
@@ -91,7 +91,7 @@ function Gallery({url}) {
       onPrevClick={handlePrevPageClick}
       onNumClick={handleNumPageClick}
       />
-      </>
+    </>
     
      
     )

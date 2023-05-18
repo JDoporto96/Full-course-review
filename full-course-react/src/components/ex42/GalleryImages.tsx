@@ -1,10 +1,20 @@
 import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import PropTypes from 'prop-types';
 
+type Image = {
+  src: string;
+  width: number;
+  height: number;
+};
 
-function srcset(image, size, rows=1, cols=1) {
+type Props={
+  columns: number,
+  itemData: Array<Image>
+  
+}
+
+function srcset(image: string, size: number, rows=1, cols=1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
     srcSet: `${image}?w=${size * cols}&h=${
@@ -13,8 +23,7 @@ function srcset(image, size, rows=1, cols=1) {
   };
 }
 
-export default function GalleryImages({columns, itemData}) {
-  // const rHeight="auto"
+export default function GalleryImages({columns, itemData}:Props) {
   return (
     <ImageList sx={{ width: "100%", height: "100%"}} variant="quilted" cols={columns} >
       {itemData.map((item) => {
@@ -35,8 +44,5 @@ export default function GalleryImages({columns, itemData}) {
   );
 }
 
-GalleryImages.propTypes={
-  columns: PropTypes.number.isRequired,
-  itemData: PropTypes.array
-}
+
 

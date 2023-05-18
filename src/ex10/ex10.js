@@ -43,7 +43,7 @@ function parseTree(stringT){
    function getValue(){
       let value="";
       while(stringT[index] != ")" && stringT[index]!=","){
-         if (stringT[index] == "(") {
+         if (stringT[index] == "(" || stringT[index] == undefined) {
             throw new Error(`Unexpected ${stringT[index]} at position ${index} on string`);
           }
          value+= stringT[index];
@@ -91,7 +91,9 @@ function parseTree(stringT){
    }
 
    const tree = createNode();
-
+      if(stringT[index]!== undefined){
+         throw new Error("Invalid syntax")
+      }
    return tree
 }
 
@@ -132,21 +134,12 @@ function printTree(tree, order = 'infix'){
 
    }else if(order =='postfix'){
       printPostorder(parsedTree)
-   }
-   if(order =='prefix'){
+   }else if(order =='prefix'){
       printPreorder(parsedTree)
    }
    return str
 }
 
-
-
-// console.log(parseTree(bTree))
-// console.log(printTree(bTree))
-
-// const errTree = "(A,(B),(C)"
-// console.log(parseTree(errTree))
-// console.log(printTree(errTree))
 
 
 module.exports = printTree;
