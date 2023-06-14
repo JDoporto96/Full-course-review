@@ -9,7 +9,7 @@
 *              / \    \
 *             H   I    J
 */
- const bTree = '(A,(B,(D),(E)),(C,(F,(H),(I)),(G,,(J))))'; 
+ const btree = '(A,(B,(D),(E)),(C,(F,(H),(I)),(G,,(J))))'; 
 // const bTree = '(AB,(C,(DEF),(G)),(H,(IJ),(S,,(K))))'; 
 /**
 * (VAL, LN, RN)
@@ -75,6 +75,8 @@ function parseTree(stringT){
       if (stringT[index] == ")") {
          index++;
          return root;
+      }else if(stringT[index] !== ","){
+         throw new Error(`, was expected in position ${index}`);
       }
    
       
@@ -91,9 +93,11 @@ function parseTree(stringT){
    }
 
    const tree = createNode();
-      if(stringT[index]!== undefined){
-         throw new Error("Invalid syntax")
-      }
+   console.log(tree)
+
+   if(stringT[index]!== undefined){
+      throw new Error("Invalid syntax")
+   }
    return tree
 }
 
@@ -140,6 +144,9 @@ function printTree(tree, order = 'infix'){
    return str
 }
 
+let tree = "(A,(B)B)"
+
+console.log("Tree:", parseTree(tree))
 
 
 module.exports = printTree;

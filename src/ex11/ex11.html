@@ -24,27 +24,7 @@ Select nodes whose children match a pattern. Must select the direct parent of th
 
 <!-- Should return a list of 3 div elements -->
 
-<script>
-    function enhancedQuerySelectorAll(pattern){
-        const [parentSelector, childSelector] = pattern.split("<");
-        const parents = document.querySelectorAll(parentSelector);
-        const res =[];
-        parents.forEach(parent => {
-            const children= parent.querySelectorAll(`${parentSelector} > ${childSelector}`);
-            children.forEach(child =>{
-                res.push(child.parentElement)
-            })})
-        res.forEach(el =>{
-            el.dataset.selected = true;
-        })
-    }
-    
-    enhancedQuerySelectorAll("div.note < input.is-complete[checked]");
-    const list = document.querySelectorAll("[data-selected]");
-    console.log(list)
-    
-    
-</script>
+<script src="ex11.js"></script>
 
 </body>
 </html>
